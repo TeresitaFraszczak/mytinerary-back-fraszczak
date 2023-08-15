@@ -1,12 +1,9 @@
-#!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-//IMPORTS
+ //IMPORTS
 import app from '../app.js';
 import debug from 'debug';
 import http from 'http';
+import { connect } from 'mongoose';
 
 //var app = require('../app');
 //var debug = require('debug')('mytinerary-back-fraszczak:server');
@@ -22,7 +19,13 @@ app.set('port', port);
  */
 //START SERVING
 let server = http.createServer(app);
-let ready = ()=> console.log('server ready on port'+port);
+let ready = ()=> {
+  console.log('server ready on port'+port);
+  //connect('mongodb+srv://terefrak:<password>@cluster0.yueuj21.mongodb.net/')
+  connect(process.env.LINK_DB)   //el metodo connect devuelve una promesa: trtabajar con then y catch o async await
+    .then(()=>console.log( 'database connected'))
+    .catch(err=>console.log(err))
+}
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -14,6 +14,7 @@ import logger from 'morgan'
 import indexRouter from './routes/index.js'
 import notFoundHandler from './middlewares/notFoundHandler.js'
 import errorHandler from './middlewares/errorHandler.js'
+import cors from 'cors'
 
 let app = express();
 //var usersRouter = require('./routes/users');
@@ -28,7 +29,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-//app.use(cookieParser());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //ROUTER

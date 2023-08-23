@@ -2,6 +2,7 @@ import City from "../../models/City.js";
 
 export default async (req,res)=>{
     try {
+
         let busqueda = {};
         let ordenamiento = {};
 
@@ -17,6 +18,7 @@ export default async (req,res)=>{
         let allCities = await City.find(busqueda, 'country city photo smalldescription admin_id')
         .populate('admin_id','photo name mail -_id')
         .sort(ordenamiento)
+
         return res.status(200).json({
             success: true,
             message: 'cities found',

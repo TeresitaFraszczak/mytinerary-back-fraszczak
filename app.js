@@ -14,7 +14,9 @@ import logger from 'morgan'
 import indexRouter from './routes/index.js'
 import notFoundHandler from './middlewares/notFoundHandler.js'
 import errorHandler from './middlewares/errorHandler.js'
+
 import cors from 'cors'
+
 
 let app = express();
 //var usersRouter = require('./routes/users');

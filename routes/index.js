@@ -1,7 +1,7 @@
 import express from 'express';
 import userRouter from './users.js';
 import citiesRouter from './cities.js'
-
+import itinerariesRouter from './itineraries.js';
 
 let router = express.Router();
 
@@ -12,5 +12,6 @@ let router = express.Router();
 
 router.use('/users',userRouter)
 router.use('/cities',citiesRouter)
+router.use('/itineraries',itinerariesRouter)
 
 export default router

@@ -137,7 +137,8 @@ async function createItineraries(arrayItineraries) {
         await connect(process.env.LINK_DB)
         for (let itineraries of arrayItineraries) {
             let city = await City.findOne({ city:itineraries.city_id })
-            itineraries.city_id = city._id
+            let city_id = await city._id
+            itineraries.city_id = city_id
             await Itinerary.create(itineraries)
         }
         console.log('done!');

@@ -4,7 +4,7 @@ let collection = "activities"
 let schema = new Schema({
     name: { type:String,required:true }, 
     photo: { type:String,required:true },
-    itinerary_id:{ type:Types.ObjectId,required:true,ref:'name' }
+    itinerary_id:{ type:Types.ObjectId,required:true,ref:'itineraries' }
 
 })
 

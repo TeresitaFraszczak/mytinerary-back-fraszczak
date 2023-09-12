@@ -28,11 +28,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //MIDDLEWARES
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev')); //permite cada vez que hago a un apeticion al servidor la registra y la muestra en cons
+app.use(express.json()); //me hbailita a leer el req.body leeer y devolver json
+app.use(express.urlencoded({ extended: false })); //leer params querys
+app.use(cors()); //para evita el error de concetar los distintos servidrores del front y back
+app.use(express.static(path.join(__dirname, 'public'))); //archivos publics
 
 //ROUTER
 app.use('/api', indexRouter);
